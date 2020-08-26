@@ -12,4 +12,4 @@ docker image ls
 
 # Step 3: 
 # Run flask app
-docker container run --name hello -p 8000:80 mahdiuzzaman/nginx-hello-world
+docker container run --name hello-world -p 8000:80 mahdiuzzaman/nginx-hello-world
