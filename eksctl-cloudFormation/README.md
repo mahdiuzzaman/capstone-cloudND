@@ -1,1 +1,1 @@
-### eksctl is as a substitute for CloudFormation
+### eksctl is used as a substitute for CloudFormation
