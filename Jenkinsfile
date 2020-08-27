@@ -7,7 +7,7 @@ pipeline {
                 sh 'hadolint Dockerfile' 
             }
         }
-        stage('Build & Upload Image') {
+        stage('Build & Upload Image-Blue') {
             when {
                 branch 'blue' 
             }
@@ -15,7 +15,7 @@ pipeline {
                 sh './image-create-upload.sh'
             }
         }
-        stage('Deployment') {
+        stage('Deployment-Blue') {
             when {
                 branch 'blue' 
             }
@@ -28,7 +28,7 @@ pipeline {
 
 
 
-        stage('Build & Upload Image') {
+        stage('Build & Upload Image-Green') {
             when {
                 branch 'green' 
             }
@@ -36,7 +36,7 @@ pipeline {
                 sh './image-create-upload.sh'
             }
         }
-        stage('Deployment') {
+        stage('Deployment-Green') {
             when {
                 branch 'green' 
             }
