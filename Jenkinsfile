@@ -24,7 +24,7 @@ pipeline {
                     sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
                     sh 'kubectl apply -f ./replication-controller.yaml'
                     sh 'kubectl apply -f ./service-controller.yaml'
-                    sh 'kubectl get services my-service'
+                    sh 'kubectl get services blue'
                 }
             }
         }
@@ -46,7 +46,7 @@ pipeline {
                     sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
                     sh 'kubectl apply -f ./replication-controller.yaml'
                     sh 'kubectl apply -f ./service-controller.yaml'
-                    sh 'kubectl get services my-service'
+                    sh 'kubectl get services green'
                 }
             }
         }
