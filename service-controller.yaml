@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cloudND
+  name: blue
 spec:
   selector:
-    app: MyApp
+    app: blue
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+  type: LoadBalancer
