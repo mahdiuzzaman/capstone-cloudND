@@ -17,3 +17,5 @@ spec:
         image: mahdiuzzaman/nginx-hello-world:green
         ports:
         - containerPort: 80
+      nodeSelector:
+        alpha.eksctl.io/nodegroup-name: blue
