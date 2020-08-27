@@ -11,9 +11,15 @@ nodeGroups:
     minSize: 1
     maxSize: 2
     volumeSize: 8
+    instanceName: blue
+    tags:
+      environment: blue
   
   - name: green
     instanceType: t2.micro
     minSize: 1
     maxSize: 2
     volumeSize: 8
+    nstanceName: green
+    tags:
+      environment: green
