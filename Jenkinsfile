@@ -4,12 +4,12 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'tidy -q -e *.html'
-                sh 'hadolint Dockerfile' 
+                sh 'hadolint Dockerfile'
             }
         }
         stage('Build & Upload Image-Blue') {
             when {
-                branch 'blue' 
+                branch 'blue'
             }
             steps {
                 sh './image-create-upload.sh'
@@ -17,20 +17,21 @@ pipeline {
         }
         stage('Deployment-Blue') {
             when {
-                branch 'blue' 
+                branch 'blue'
             }
             steps {
-                sh "kubectl apply -f ./replication-controller.yaml"
-                sh "kubectl apply -f ./service-controller.yaml"
-                sh "kubectl get services my-service"
+                withAWS(credentials: 'mahdi', region: 'us-west-2') {
+                    sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
+                    sh 'kubectl apply -f ./replication-controller.yaml'
+                    sh 'kubectl apply -f ./service-controller.yaml'
+                    sh 'kubectl get services blue'
+                }
             }
         }
 
-
-
         stage('Build & Upload Image-Green') {
             when {
-                branch 'green' 
+                branch 'green'
             }
             steps {
                 sh './image-create-upload.sh'
@@ -38,15 +39,16 @@ pipeline {
         }
         stage('Deployment-Green') {
             when {
-                branch 'green' 
+                branch 'green'
             }
             steps {
-                sh "kubectl apply -f ./replication-controller.yaml"
-                sh "kubectl apply -f ./service-controller.yaml"
-                sh "kubectl get services my-service"
+                withAWS(credentials: 'mahdi', region: 'us-west-2') {
+                    sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
+                    sh 'kubectl apply -f ./replication-controller.yaml'
+                    sh 'kubectl apply -f ./service-controller.yaml'
+                    sh 'kubectl get services green'
+                }
             }
         }
     }
 }
-
-
