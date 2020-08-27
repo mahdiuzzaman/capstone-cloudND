@@ -2,11 +2,18 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: cloudND-cluster
+  name: cloudND
   region: us-west-2  
 
 nodeGroups:
-  - name: cloudND
+  - name: blue
     instanceType: t2.micro
-    desiredCapacity: 6
+    minSize: 1
+    maxSize: 2
+    volumeSize: 8
+  
+    - name: green
+    instanceType: t2.micro
+    minSize: 1
+    maxSize: 2
     volumeSize: 8
