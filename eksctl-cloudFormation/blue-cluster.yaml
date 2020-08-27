@@ -6,7 +6,8 @@ metadata:
   region: us-west-2  
 
 nodeGroups:
-  - name: nginx
+  - name: blue
     instanceType: t2.micro
-    desiredCapacity: 4
+    minSize: 1
+    maxSize: 2
     volumeSize: 8
