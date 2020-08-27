@@ -1,0 +1,41 @@
+$ ./create-cluster.sh 
+[ℹ]  eksctl version 0.26.0
+[ℹ]  using region us-west-2
+[ℹ]  setting availability zones to [us-west-2d us-west-2b us-west-2c]
+[ℹ]  subnets for us-west-2d - public:192.168.0.0/19 private:192.168.96.0/19
+[ℹ]  subnets for us-west-2b - public:192.168.32.0/19 private:192.168.128.0/19
+[ℹ]  subnets for us-west-2c - public:192.168.64.0/19 private:192.168.160.0/19
+[ℹ]  nodegroup "blue" will use "ami-01c3b376c82d7673d" [AmazonLinux2/1.17]
+[ℹ]  nodegroup "green" will use "ami-01c3b376c82d7673d" [AmazonLinux2/1.17]
+[ℹ]  using Kubernetes version 1.17
+[ℹ]  creating EKS cluster "cloudND" in "us-west-2" region with un-managed nodes
+[ℹ]  2 nodegroups (blue, green) were included (based on the include/exclude rules)
+[ℹ]  will create a CloudFormation stack for cluster itself and 2 nodegroup stack(s)
+[ℹ]  will create a CloudFormation stack for cluster itself and 0 managed nodegroup stack(s)
+[ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-west-2 --cluster=cloudND'
+[ℹ]  CloudWatch logging will not be enabled for cluster "cloudND" in "us-west-2"
+[ℹ]  you can enable it with 'eksctl utils update-cluster-logging --region=us-west-2 --cluster=cloudND'
+[ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "cloudND" in "us-west-2"
+[ℹ]  2 sequential tasks: { create cluster control plane "cloudND", 2 sequential sub-tasks: { no tasks, 2 parallel sub-tasks: { create nodegroup "blue", create nodegroup "green" } } }
+[ℹ]  building cluster stack "eksctl-cloudND-cluster"
+[ℹ]  deploying stack "eksctl-cloudND-cluster"
+[ℹ]  building nodegroup stack "eksctl-cloudND-nodegroup-green"
+[ℹ]  building nodegroup stack "eksctl-cloudND-nodegroup-blue"
+[ℹ]  deploying stack "eksctl-cloudND-nodegroup-blue"
+[ℹ]  deploying stack "eksctl-cloudND-nodegroup-green"
+[ℹ]  waiting for the control plane availability...
+[✔]  saved kubeconfig as "/home/mahdi/.kube/config"
+[ℹ]  no tasks
+[✔]  all EKS cluster resources for "cloudND" have been created
+[ℹ]  adding identity "arn:aws:iam::836609723480:role/eksctl-cloudND-nodegroup-blue-NodeInstanceRole-4F9S7SRBLBVF" to auth ConfigMap
+[ℹ]  nodegroup "blue" has 0 node(s)
+[ℹ]  waiting for at least 1 node(s) to become ready in "blue"
+[ℹ]  nodegroup "blue" has 1 node(s)
+[ℹ]  node "ip-192-168-38-212.us-west-2.compute.internal" is ready
+[ℹ]  adding identity "arn:aws:iam::836609723480:role/eksctl-cloudND-nodegroup-green-NodeInstanceRole-1HEN4Z6J6XLTH" to auth ConfigMap
+[ℹ]  nodegroup "green" has 0 node(s)
+[ℹ]  waiting for at least 1 node(s) to become ready in "green"
+[ℹ]  nodegroup "green" has 1 node(s)
+[ℹ]  node "ip-192-168-43-50.us-west-2.compute.internal" is ready
+[ℹ]  kubectl command should work with "/home/mahdi/.kube/config", try 'kubectl get nodes'
+[✔]  EKS cluster "cloudND" in "us-west-2" region is ready
