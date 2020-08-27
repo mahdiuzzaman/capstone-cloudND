@@ -21,6 +21,7 @@ pipeline {
             }
             steps {
                 withAWS(credentials: 'mahdi', region: 'us-west-2') {
+                    sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
                     sh 'kubectl apply -f ./replication-controller.yaml'
                     sh 'kubectl apply -f ./service-controller.yaml'
                     sh 'kubectl get services my-service'
@@ -42,6 +43,7 @@ pipeline {
             }
             steps {
                 withAWS(credentials: 'mahdi', region: 'us-west-2') {
+                    sh "aws eks --region us-west-2 update-kubeconfig --name cloudND"
                     sh 'kubectl apply -f ./replication-controller.yaml'
                     sh 'kubectl apply -f ./service-controller.yaml'
                     sh 'kubectl get services my-service'
