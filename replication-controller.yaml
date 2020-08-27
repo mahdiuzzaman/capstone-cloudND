@@ -17,5 +17,3 @@ spec:
         image: mahdiuzzaman/nginx-hello-world:blue
         ports:
         - containerPort: 80
-      nodeSelector:
-        environment: blue
