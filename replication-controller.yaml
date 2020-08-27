@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: blue
+  name: green
 spec:
   replicas: 3
   selector:
-    app: blue
+    app: green
   template:
     metadata:
-      name: blue
+      name: green
       labels:
-        app: blue
+        app: green
     spec:
       containers:
-      - name: blue
-        image: mahdiuzzaman/nginx-hello-world:blue
+      - name: green
+        image: mahdiuzzaman/nginx-hello-world:green
         ports:
         - containerPort: 80
