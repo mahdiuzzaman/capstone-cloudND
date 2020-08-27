@@ -7,19 +7,20 @@ metadata:
 
 nodeGroups:
   - name: blue
+    labels:
+      environment: blue
     instanceType: t2.micro
     minSize: 1
     maxSize: 2
     volumeSize: 8
     instanceName: blue
-    tags:
-      environment: blue
+
   
   - name: green
+    labels:
+      environment: green
     instanceType: t2.micro
     minSize: 1
     maxSize: 2
     volumeSize: 8
     instanceName: green
-    tags:
-      environment: green
