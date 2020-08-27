@@ -20,6 +20,6 @@ nodeGroups:
     minSize: 1
     maxSize: 2
     volumeSize: 8
-    nstanceName: green
+    instanceName: green
     tags:
       environment: green
