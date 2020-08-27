@@ -12,7 +12,7 @@ nodeGroups:
     maxSize: 2
     volumeSize: 8
   
-    - name: green
+  - name: green
     instanceType: t2.micro
     minSize: 1
     maxSize: 2
