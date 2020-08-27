@@ -8,5 +8,5 @@ metadata:
 nodeGroups:
   - name: cloudND
     instanceType: t2.micro
-    desiredCapacity: 4
+    desiredCapacity: 6
     volumeSize: 8
