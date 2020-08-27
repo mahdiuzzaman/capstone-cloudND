@@ -2,11 +2,11 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: cloudND-cluster
+  name: cloudND
   region: us-west-2  
 
 nodeGroups:
-  - name: cloudND
+  - name: nginx
     instanceType: t2.micro
-    desiredCapacity: 6
+    desiredCapacity: 4
     volumeSize: 8
